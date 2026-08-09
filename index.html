@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic and research website" />
+  <title>Pooja Kumari Gupta | Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f8fc; --surface:#fff; --text:#182033; --muted:#687085;
+      --accent:#4057b8; --accent2:#7b61c9; --line:#e5e8f0;
+      --dark:#11172a; --max:1120px; --radius:18px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(92%,var(--max));margin:auto}
+    nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(229,232,240,.8)}
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:700;font-size:1.05rem}
+    .logo span{color:var(--accent)}
+    .links{display:flex;gap:25px;font-size:.9rem;color:var(--muted)}
+    .links a:hover{color:var(--accent)}
+    .menu{display:none;border:0;background:none;font-size:1.5rem}
+    .hero{padding:150px 0 95px;background:linear-gradient(135deg,#f8f9ff 0%,#eef1ff 55%,#f8f7ff 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-size:.78rem;font-weight:700}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(3rem,7vw,5.4rem);line-height:1.02;margin:14px 0 22px}
+    .hero h1 span{color:var(--accent)}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:680px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:12px 20px;border-radius:10px;font-weight:600;border:1px solid var(--line);background:white}
+    .btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+    .btn:hover{transform:translateY(-2px)}
+    .profile{display:flex;justify-content:center}
+    .photo{width:280px;height:330px;border-radius:24px;background:linear-gradient(145deg,#dfe4ff,#fff);border:1px solid #d8ddef;display:flex;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px;box-shadow:0 20px 50px rgba(53,65,130,.13)}
+    section{padding:90px 0}
+    .section-head{margin-bottom:42px}
+    .section-head small{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+    h2{font-family:"Playfair Display",serif;font-size:2.5rem;margin:7px 0}
+    .section-head p{color:var(--muted);max-width:700px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .fact{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:14px}
+    .fact strong{display:block;font-size:.85rem;color:var(--muted);margin-bottom:5px}
+    .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:27px;transition:.2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 14px 35px rgba(20,30,70,.08)}
+    .icon{font-size:1.7rem;margin-bottom:15px}
+    .card h3{margin:0 0 8px;font-size:1.08rem}
+    .card p{margin:0;color:var(--muted);font-size:.93rem}
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .project{background:var(--dark);color:white;border-radius:var(--radius);padding:30px;min-height:240px;position:relative;overflow:hidden}
+    .project:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-60px;bottom:-70px;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.45}
+    .project p{color:#c9cee0;max-width:570px}
+    .tag{display:inline-block;padding:5px 9px;border-radius:20px;background:rgba(255,255,255,.1);font-size:.75rem;margin:3px}
+    .pub{display:grid;grid-template-columns:75px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .year{font-weight:700;color:var(--accent)}
+    .pub h3{margin:0 0 5px;font-size:1rem}
+    .pub p{margin:0;color:var(--muted);font-size:.9rem}
+    .pub a{display:inline-block;margin-top:8px;color:var(--accent);font-size:.85rem;font-weight:600}
+    .timeline{border-left:2px solid var(--line);padding-left:25px}
+    .timeline-item{position:relative;margin-bottom:32px}
+    .timeline-item:before{content:"";position:absolute;width:10px;height:10px;background:var(--accent);border-radius:50%;left:-31px;top:10px}
+    .timeline-item h3{margin:0}
+    .timeline-item p{margin:3px 0;color:var(--muted)}
+    .contact{background:var(--dark);color:white;border-radius:25px;padding:55px}
+    .contact p{color:#c9cee0;max-width:650px}
+    .contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+    .contact-links a{border:1px solid #39415a;padding:10px 15px;border-radius:9px}
+    footer{padding:35px 0;color:var(--muted);font-size:.85rem}
+    @media(max-width:800px){
+      .links{display:none}.menu{display:block}
+      .hero-grid,.about-grid,.projects{grid-template-columns:1fr}
+      .research-grid{grid-template-columns:1fr 1fr}
+      .hero{padding-top:120px}.profile{order:-1}
+    }
+    @media(max-width:520px){
+      .research-grid,.facts{grid-template-columns:1fr}
+      section{padding:65px 0}.contact{padding:32px 25px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">Pooja Kumari Gupta</span></a>
+    <div class="links">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a>
+      <a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" aria-label="Menu" onclick="alert('On mobile, scroll through the sections below.')">☰</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Researcher · Physicist · Quantum Science</div>
+        <h1>Hello, I'm <span>Pooja Kumari Gupta</span>.</h1>
+        <p class="lead">
+          I am currently a <strong>Research Scholar</strong> in the Department of Physics
+            at <strong>IIT Guwahati</strong>. 
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#research">Explore my research</a>
+          <a class="btn" href="cv.pdf" target="_blank">View CV</a>
+        </div>
+      </div>
+      <div class="profile">
+        <!-- Replace this box with your photo:
+             <img class="photo" src="profile.jpg" alt="Your Name"> -->
+             <img class="photo" src="profile.jpg" alt="Pooja Gupta">
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <small>About me</small><h2>A little about my work</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+             My research focuses on hybrid quantum systems, with particular emphasis on cavity magnonics.
+             I work on the theoretical investigation of hybrid light–matter systems, exploring the interaction between microwave photons,
+              magnons, and phonons in cavity-magnonic platforms.
+            </p>
+            <p>
+              My research aims to understand and control nonlinear, nonequilibrium, and quantum phenomena in these systems, 
+              including quantum correlations, nonlinear dynamics, bistability, quantum interference, and magnon–photon interactions.
+               By developing theoretical models and numerical approaches, I investigate how cavity-magnonic systems can be engineered
+                to realize and manipulate quantum states and phenomena. A central goal of my research is to explore the potential of
+                 cavity magnonics as a platform for quantum technologies, with possible applications in quantum information processing, 
+                 quantum communication and the generation and control of nonclassical states.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>Current position</strong>Research Scholar</div>
+          <div class="fact"><strong>Department</strong>Department of Physics, IIT Guwahati</div>
+          <div class="fact"><strong>Research area</strong>Hybrid Quantum Systems, Cavity Magnonics</div>
+          <div class="fact"><strong>Location</strong>Guwahati, India</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="container">
+      <div class="section-head">
+        <small>Research interests</small><h2>What I work on</h2>
+      </div>
+      <div class="research-grid">
+        <article class="card"><div class="icon">◈</div><h3>Cavity Magnonics</h3><p>Hybridization between microwave photons and collective spin excitations, and its applications in quantum systems.</p></article>
+        <article class="card"><div class="icon">⌁</div><h3>Hybrid Quantum Systems</h3><p>Coupled quantum platforms that combine complementary physical degrees of freedom.</p></article>
+        <article class="card"><div class="icon">∿</div><h3>Nonlinear Dynamics</h3><p>Bistability, bifurcations, self-sustained oscillations, and nonlinear phenomena in driven-dissipative systems.</p></article>
+        <article class="card"><div class="icon">✦</div><h3>Quantum Correlations</h3><p>Quantum entanglement, squeezing, correlations, and nonclassical state generation.</p></article>
+        <article class="card"><div class="icon">⚛</div><h3>Cavity Magnomechanics</h3><p>Interactions among microwave fields, magnons, and phonons in hybrid quantum platforms.</p></article>
+        <article class="card"><div class="icon">◇</div><h3>Quantum Technologies</h3><p>Exploring hybrid architectures for quantum information processing, sensing, and emerging quantum applications.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <small>Selected projects</small><h2>Research projects</h2>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <span class="tag">Quantum transduction</span>
+          <span class="tag">Electro-optomagnonical System</span>
+          <h3> Quantum-interference-induced magnon blockade and antibunching in a hybrid quantum system</h3>
+          <p>Study of quantum transduction of a superconducting qubit to an optical photon in electro-optomechanical 
+            and electro-optomagnonical systems.</p>
+        </article>
+        <article class="project">
+          <span class="tag">Kerr nonlinearity</span>
+          <span class="tag"> Bistability</span>
+          <span class="tag"> Self-sustained oscillations</span>
+          <h3>Nonlinear Cavity-Magnomechanical System</h3>
+          <p>Investigation of Kerr-modified cavity magnomechanical system, including bistability, Hopf bifurcations, and oscillatory dynamics.</p>
+        </article>
+        <article class="project">
+          <span class="tag">Multistability</span>
+          <span class="tag"> Non Equilibrium Steady states</span>
+          <h3>Cavity Magnon Dimer</h3>
+          <p>Exploring multistability, self trapping and quantum correlations in a cavity magnonic dimer.</p>
+        </article>
+        <article class="project">
+          <span class="tag">Quantum nonlinearities</span>
+          <span class="tag">Magnon blockade</span>
+          <h3>Quantum Interference and Magnon Blockade</h3>
+          <p>Study of quantum interference mechanisms that can suppress multiparticle excitations and enable nonclassical magnon states.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <div class="section-head">
+        <small>Publications</small><h2>Selected publications</h2>
+      </div>
+      <!-- Duplicate a .pub block for more papers -->
+      <div class="pub">
+        <div class="year">2024</div>
+        <div><h3>Quantum-interference-induced magnon blockade and antibunching in a hybrid quantum system
+        </h3><p>Pooja Kumari Gupta, Sampreet Kalita, and Amarendra K. Sarma,
+           <em>Journal of the Optical Society of America B,
+           </em>.</p><a href="https://doi.org/10.1364/JOSAB.507012" target="_blank">DOI / Paper →</a></div>
+      </div>
+      <div class="pub">
+        <div class="year">2023</div>
+        <div><h3>Quantum transduction of a superconducting qubit in an electro-optomechanical and an electro-optomagnonical system
+        </h3><p>Roson Nongthombam, Pooja Kumari Gupta, and Amarendra K. Sarma, 
+          <em>Physical Review A</em>.</p><a href="https://doi.org/10.1103/PhysRevA.108.043501" target="_blank">DOI / Paper →</a></div>
+      </div>
+      <div class="pub">
+        <div class="year">2024</div>
+        <div><h3>Quantum signatures of bistability and limit cycle in Kerr-modified cavity magnomechanics
+        </h3><p>Pooja Kumari Gupta, Subhadeep Chakraborty, Sampreet Kalita, and Amarendra K. Sarma, 
+          <em>Physical Review A </em>.</p><a href="#" target="_blank">DOI / Paper →</a></div>
+      </div>
+      <div class="buttons"><a class="btn" href="https://doi.org/10.1103/PhysRevA.110.063504" target="_blank">View complete publication list</a></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <small>Academic journey</small><h2>Education & experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Research Scholar — Indian Institute of Technology, Guwahati</h3>
+          <p>2021 – Present · Department of Physics</p>
+          <p>Hybrid Cavity Optomagnonics for Quantum Technology.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Master's Degree — National Institute of Technology, Rourkela</h3>
+          <p>2017 – 2019 · Physics</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Bachelor's Degree — St. Xavier's College, Ranchi</h3>
+          <p>2014 – 2017 · Physics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="section-head">
+          <small>Get in touch</small><h2>Let's connect.</h2>
+        </div>
+        <p>
+          I am always interested in discussing research, collaborations, academic opportunities,
+          and ideas related to quantum and hybrid systems.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:pooja.kumari@iitg.ac.in">Email</a>
+          <a href="https://scholar.google.com/citations?user=txnmYtUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a href="https://orcid.org/my-orcid?orcid=0009-0002-8514-8292" target="_blank">ORCID</a>
+          <a href="cv.pdf" target="_blank">CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Pooja Kumari Gupta. Built for science & curiosity.</div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
